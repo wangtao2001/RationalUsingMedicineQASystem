@@ -1,7 +1,7 @@
+# !/usr/bin/env python3
 # -*-coding: utf-8-*-
 # @author:  wangtao
 # @data: 21/04/03, Sat
-# 得到所有疾病 disease 以及url
 
 import requests
 import json
