@@ -34,8 +34,8 @@ for url in url_list:
             span = div.find_all("span")[0]
             if span.string == "疾病":  # 而非症状、检查...
                 disease_name = div.find_all("a")[0].get("title")
-                herf = div.find_all("a")[0].get("href")
-                disease_url_dict[disease_name] = herf
+                href = div.find_all("a")[0].get("href")
+                disease_url_dict[disease_name] = href
 
                 print(disease_name)
 
