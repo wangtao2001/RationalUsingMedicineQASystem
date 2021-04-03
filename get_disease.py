@@ -14,14 +14,14 @@ with open(r".\data\disease_url.txt", 'r', encoding='utf-8') as disease_url_f:
     disease_url_list_tp = [eval(url) for url in disease_url_f.readlines()]  # 每个元素都是字典
 disease_url_list = [di[key] for di in disease_url_list_tp for key in di.keys()]  # 所有疾病的列表
 
-disease_f = open(r'.\实体\disease.txt', 'a', encoding='utf-8')  # 追加写
+disease_f = open(r'.\substance\disease.txt', 'a', encoding='utf-8')  # 追加写
 symptom_url_f = open(r".\data\symptom_url.txt", 'a', encoding='utf-8')  # 所有症状url
 check_url_f = open(r".\data\check_url.txt", 'a', encoding='utf-8')  # 所有检查url
 medical_url_f = open(r".\data\medical_url.txt", 'a', encoding='utf-8')  # 所有药品url
 
-count = 2496  # 计数器
+count = 2826  # 计数器
 
-for url in disease_url_list[2496:]:  # 15179 条数据
+for url in disease_url_list[2826:]:  # 15179 条数据
 
     count += 1
     print(count)
