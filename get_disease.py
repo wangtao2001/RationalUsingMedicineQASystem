@@ -24,7 +24,7 @@ count = 2977  # 计数器
 for url in disease_url_list[2977:]:  # 15179 条数据
 
     count += 1
-    print(count)
+    print("\b"+count+" "+"{:.2f}%".format(100*count/155179),end="")  # 刷新输出
 
     disease_dict = dict()
 
