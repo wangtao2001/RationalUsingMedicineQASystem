@@ -8,6 +8,8 @@ import json
 import bs4
 from bs4 import BeautifulSoup
 
+li = []  # 去重列表
+
 start_url = "https://jbk.39.net/bw/"
 headers = {r"user-agent": "Mozilla\5.0"}
 
@@ -15,10 +17,11 @@ with open(r".\data\department.json", "r", encoding="utf-8") as department_f:
     department_dict = json.load(department_f, encoding="utf-8")
 url_list = [start_url + de for key in department_dict.keys() for de in department_dict[key]]
 
+
 disease_url_f = open(r".\data\disease_url.txt", "a", encoding="utf-8")  # 追加写
 
 disease_url_dict = dict()
-for url in url_list:
+for url in url_list[:10]:  # url_list长度为41 索引0:41
     r1 = requests.get(url, headers=headers, timeout=15)
     soup1 = BeautifulSoup(r1.content, "html.parser")
 
@@ -35,12 +38,15 @@ for url in url_list:
             if span.string == "疾病":  # 而非症状、检查...
                 disease_name = div.find_all("a")[0].get("title")
                 href = div.find_all("a")[0].get("href")
-                disease_url_dict[disease_name] = href
 
-                print(disease_name)
+                if href not in li:  # 还未添加过
+                    li.append(href)
 
-                disease_url_f.write(str(disease_url_dict))  # txt文件将会包含很多字典，每一个字典仅包含一个键值对 疾病：url
-                disease_url_f.write("\n")
+                    disease_url_dict[disease_name] = href
+                    print(disease_name)
+
+                    disease_url_f.write(str(disease_url_dict))  # txt文件将会包含很多字典，每一个字典仅包含一个键值对 疾病：url
+                    disease_url_f.write("\n")
                 disease_url_dict = dict()
-
+                
 disease_url_f.close()

@@ -21,7 +21,7 @@ symptom_url_f = open(r".\data\symptom_url.txt", 'a', encoding='utf-8')  # 所有
 check_url_f = open(r".\data\check_url.txt", 'a', encoding='utf-8')  # 所有检查url
 medical_url_f = open(r".\data\medical_url.txt", 'a', encoding='utf-8')  # 所有药品url
 
-for url in disease_url_list[count:]:  # 15179 条数据
+for url in disease_url_list[count:]:  # 11543 条数据 无重复disease
 
     count += 1
     i = int(int(100 * count / 15179) / 2)
