@@ -45,6 +45,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\run_get_disease.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\实体\disease.txt">
           <value>
             <Attribute>

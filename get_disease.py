@@ -7,6 +7,8 @@ import requests
 import bs4
 from bs4 import BeautifulSoup
 
+count = 0
+
 start_url = "https://jbk.39.net/"
 headers = {r"user-agent": "Mozilla\5.0"}
 
@@ -19,12 +21,12 @@ symptom_url_f = open(r".\data\symptom_url.txt", 'a', encoding='utf-8')  # 所有
 check_url_f = open(r".\data\check_url.txt", 'a', encoding='utf-8')  # 所有检查url
 medical_url_f = open(r".\data\medical_url.txt", 'a', encoding='utf-8')  # 所有药品url
 
-count = 2977  # 计数器
-
-for url in disease_url_list[2977:]:  # 15179 条数据
+for url in disease_url_list[count:]:  # 15179 条数据
 
     count += 1
-    print("\b"+count+" "+"{:.2f}%".format(100*count/155179),end="")  # 刷新输出
+    i = int(int(100 * count / 15179) / 2)
+    print("\r" + str(count) + "|" + "█" * i + " " * (50 - i) + "|" + "{:.2f}%".format(100 * count / 15179),
+          end='')  # 刷新输出显示百分比进度
 
     disease_dict = dict()
 
@@ -32,7 +34,7 @@ for url in disease_url_list[2977:]:  # 15179 条数据
     soup1 = BeautifulSoup(r1.content, 'html.parser')
 
     # =====================基本属性BEGIN===================
-    disease_dict['id'] = url.lstrip("https://jbk.39.net/")[:-1]  # 写入唯一标识符
+    disease_dict['id'] = url[19:-1]  # 写入唯一标识符
     disease_name = soup1.find("div", attrs={"class": "disease"}).find("h1").string
     disease_dict['name'] = disease_name  # 写入疾病名称
 
@@ -77,8 +79,11 @@ for url in disease_url_list[2977:]:  # 15179 条数据
 
     for li in li_list:
         if li.find("i").string[:-1] == "挂号科室":  # 写入挂号科室
-            disease_dict["department"] = li.find("a").string.strip()
-            break
+            try:
+                disease_dict["department"] = li.find("a").string.strip()
+            except:
+                disease_dict["department"] = None
+                break
     else:
         disease_dict["department"] = None
 
@@ -147,6 +152,7 @@ for url in disease_url_list[2977:]:  # 15179 条数据
             medical_url_dict[a.string] = a.get("href")
             medical_url_f.write(str(medical_url_dict))
             medical_url_f.write("\n")
+            medical_url_dict = {}
         disease_dict["medical"] = medical_list
     else:
         disease_dict["medical"] = None
@@ -158,3 +164,4 @@ disease_f.close()
 symptom_url_f.close()
 check_url_f.close()
 medical_url_f.close()
+
