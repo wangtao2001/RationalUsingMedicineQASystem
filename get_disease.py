@@ -7,25 +7,25 @@ import requests
 import bs4
 from bs4 import BeautifulSoup
 
-count = 0
+count = 2976
 
 start_url = "https://jbk.39.net/"
 headers = {r"user-agent": "Mozilla\5.0"}
 
 with open(r".\data\disease_url.txt", 'r', encoding='utf-8') as disease_url_f:
     disease_url_list_tp = [eval(url) for url in disease_url_f.readlines()]  # 每个元素都是字典
-disease_url_list = [di[key] for di in disease_url_list_tp for key in di.keys()]  # 所有疾病的列表
+disease_url_list = [di[key] for di in disease_url_list_tp for key in di.keys()]  # 所有疾病url的列表
 
 disease_f = open(r'.\substance\disease.txt', 'a', encoding='utf-8')  # 追加写
 symptom_url_f = open(r".\data\symptom_url.txt", 'a', encoding='utf-8')  # 所有症状url
 check_url_f = open(r".\data\check_url.txt", 'a', encoding='utf-8')  # 所有检查url
 medical_url_f = open(r".\data\medical_url.txt", 'a', encoding='utf-8')  # 所有药品url
 
-for url in disease_url_list[count:]:  # 11543 条数据 无重复disease
+for url in disease_url_list[count:]:  # 7378 条数据 无重复disease
 
     count += 1
-    i = int(int(100 * count / 15179) / 2)
-    print("\r" + str(count) + "|" + "█" * i + " " * (50 - i) + "|" + "{:.2f}%".format(100 * count / 15179),
+    i = int(int(100 * count / 7378) / 2)
+    print("\r" + str(count) + "|" + "█" * i + " " * (50 - i) + "|" + "{:.2f}%".format(100 * count / 7378),
           end='')  # 刷新输出显示百分比进度
 
     disease_dict = dict()
