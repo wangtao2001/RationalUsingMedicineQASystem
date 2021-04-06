@@ -17,9 +17,9 @@ with open(r".\data\disease_url.txt", 'r', encoding='utf-8') as disease_url_f:
 disease_url_list = [di[key] for di in disease_url_list_tp for key in di.keys()]  # 所有疾病url的列表
 
 disease_f = open(r'.\substance\disease.txt', 'a', encoding='utf-8')  # 追加写
-symptom_url_f = open(r".\data\symptom_url.txt", 'a', encoding='utf-8')  # 所有症状url
-check_url_f = open(r".\data\check_url.txt", 'a', encoding='utf-8')  # 所有检查url
-medical_url_f = open(r".\data\medical_url.txt", 'a', encoding='utf-8')  # 所有药品url
+symptom_url_f = open(r".\data\symptom_url_repeat.txt", 'a', encoding='utf-8')  # 所有症状url
+check_url_f = open(r".\data\check_url_repeat.txt", 'a', encoding='utf-8')  # 所有检查url
+medical_url_f = open(r".\data\medical_url_repeat.txt", 'a', encoding='utf-8')  # 所有药品url
 
 for url in disease_url_list[count:]:  # 7378 条数据 无重复disease
 
