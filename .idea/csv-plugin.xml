@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="C:\Users\Administrator\AppData\Roaming\JetBrains\PyCharmCE2020.3\scratches\模式">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="C:\Users\Administrator\AppData\Roaming\JetBrains\PyCharmCE2020.3\scratches\记录">
           <value>
             <Attribute>
@@ -60,6 +67,13 @@
           </value>
         </entry>
         <entry key="\run_get_disease.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\substance\medical.txt">
           <value>
             <Attribute>
               <option name="separator" value=":" />
