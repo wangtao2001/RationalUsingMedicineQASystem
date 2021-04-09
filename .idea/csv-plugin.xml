@@ -45,6 +45,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\get_medical.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\request.py">
           <value>
             <Attribute>
