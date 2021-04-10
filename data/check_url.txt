@@ -433,7 +433,7 @@
 {'蛇毒因子溶血试验': 'https://jbk.39.net/jiancha/sdyzrxsy/'}
 {'膀胱叩诊': 'https://jbk.39.net/jiancha/bgkz/'}
 {'骨骼听诊': 'https://jbk.39.net/jiancha/ggtz/'}
-{'心脏血管超声检查': 'https://jbk.39.net/jiancha/xzxgcsjc/'}{'肝脏超声检查': 'https://jbk.39.net/jiancha/gzcsjc/'}
+{'心脏血管超声检查': 'https://jbk.39.net/jiancha/xzxgcsjc/'}
 {'红细胞体积指数': 'https://jbk.39.net/jiancha/hxbtjzs/'}
 {'腹股沟外环冲击试验': 'https://jbk.39.net/jiancha/fggwhcjsy/'}
 {'儿童支气管镜': 'https://jbk.39.net/jiancha/etzqgjjc/'}
