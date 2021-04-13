@@ -108,7 +108,8 @@
 {'模糊不定，情绪性面痛': 'https://jbk.39.net/zhengzhuang/mhbdqxxmt/'}
 {'视空间功能受损': 'https://jbk.39.net/zhengzhuang/skjgnss/'}
 {'皮肤转移': 'https://jbk.39.net/zhengzhuang/pfzy/'}
-{'心动过速': 'https://jbk.39.net/zhengzhuang/xdgs/'}{'头痛': 'https://jbk.39.net/zhengzhuang/tt/'}
+{'心动过速': 'https://jbk.39.net/zhengzhuang/xdgs/'}
+{'头痛': 'https://jbk.39.net/zhengzhuang/tt/'}
 {'额横纹增深': 'https://jbk.39.net/zhengzhuang/ehwzs/'}
 {'阴唇融合': 'https://jbk.39.net/zhengzhuang/ycrh/'}
 {'颌下腺疼痛、压痛': 'https://jbk.39.net/zhengzhuang/hxxttyt/'}
