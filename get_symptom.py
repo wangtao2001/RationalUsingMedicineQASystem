@@ -16,9 +16,8 @@ if __name__ == "__main__":
 
     symptom_f = open(r".\substance\symptom.txt", 'a', encoding='utf-8')  # symptom实体文件
 
-    count = 0  # 计数器
-    # 前10条测试数据
-    for url in symptom_url_list[:10]:
+    count = 3477  # 计数器
+    for url in symptom_url_list[count:]: # 4007条数据
         count += 1
         print(count)
 
@@ -60,7 +59,7 @@ if __name__ == "__main__":
                     symptom_dict["related"] = None
             for dl in dl_list:
                 if dl.find("dt").string == "常见问诊内容":
-                    inter = "".join([dd.string.replace("\n","") for dd in dl.find_all("dd")])
+                    inter = "".join([dd.string.replace("\n","") for dd in dl.find_all("dd") if dd.string is not None])
                     symptom_dict["interrogation"] = inter
                     break
                 else:
@@ -91,7 +90,6 @@ if __name__ == "__main__":
             if a is not None and a.get("href")[:27] == "https://jbk.39.net/jiancha/":
                 check_list.append(a.get("href")[27:-1])
         symptom_dict["check"] = check_list
-
 
         symptom_f.write(str(symptom_dict))  # txt文件将会保存药品 medical实体字典
         symptom_f.write("\n")

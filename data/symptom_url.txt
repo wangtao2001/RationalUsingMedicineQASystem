@@ -191,7 +191,6 @@
 {'胀感': 'https://jbk.39.net/zhengzhuang/zg1/'}
 {'拇指内收畸形': 'https://jbk.39.net/zhengzhuang/mznsjx/'}
 {'足背动脉搏动消失': 'https://jbk.39.net/zhengzhuang/zbdmbdxs/'}
-{'酒悖': 'https://jbk.39.net/zhengzhuang/jb/'}
 {'颞部疼痛': 'https://jbk.39.net/zhengzhuang/nbtt/'}
 {'全身弥漫性潮红': 'https://jbk.39.net/zhengzhuang/qsmmxch/'}
 {'粉红色泡沫样痰': 'https://jbk.39.net/zhengzhuang/fhspmyt/'}
