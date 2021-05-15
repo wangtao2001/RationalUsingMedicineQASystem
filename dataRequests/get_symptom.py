@@ -10,11 +10,11 @@ start_url = "https://jbk.39.net/zq/zhengzhuang"
 headers = {r"user-agent": "Mozilla\5.0"}
 
 if __name__ == "__main__":
-    with open(r".\data\symptom_url.txt", 'r', encoding='utf-8') as symptom_url_f:
+    with open(r"../data/symptom_url.txt", 'r', encoding='utf-8') as symptom_url_f:
         symptom_url_list_tp = [eval(url) for url in symptom_url_f.readlines()]  # 每个元素都是字典
     symptom_url_list = [di[key] for di in symptom_url_list_tp for key in di.keys()]  # 所有症状url的列表
 
-    symptom_f = open(r".\substance\symptom.txt", 'a', encoding='utf-8')  # symptom实体文件
+    symptom_f = open(r"../substance/symptom.txt", 'a', encoding='utf-8')  # symptom实体文件
 
     count = 3477  # 计数器
     for url in symptom_url_list[count:]: # 4007条数据

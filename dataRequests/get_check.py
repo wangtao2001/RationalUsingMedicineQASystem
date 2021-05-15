@@ -10,11 +10,11 @@ start_url = "https://jbk.39.net/jiancha/"
 headers = {r"user-agent": "Mozilla\5.0"}
 
 if __name__ == "__main__":
-    with open(r".\data\check_url.txt", 'r', encoding='utf-8') as check_url_f:
+    with open(r"../data/check_url.txt", 'r', encoding='utf-8') as check_url_f:
         check_url_list_tp = [eval(url) for url in check_url_f.readlines()]  # 每个元素都是字典
     check_url_list = [di[key] for di in check_url_list_tp for key in di.keys()]  # 所有检查url的列表
 
-    check_f = open(r".\substance\check.txt", 'a', encoding='utf-8')  # medical实体文件
+    check_f = open(r"../substance/check.txt", 'a', encoding='utf-8')  # medical实体文件
 
     count = 1989
     # 10条测试数据

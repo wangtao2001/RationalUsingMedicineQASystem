@@ -13,11 +13,11 @@ li = []  # 去重列表
 start_url = "https://jbk.39.net/bw/"
 headers = {r"user-agent": "Mozilla\5.0"}
 
-with open(r".\data\department.json", "r", encoding="utf-8") as department_f:
+with open(r"../data/department.json", "r", encoding="utf-8") as department_f:
     department_dict = json.load(department_f, encoding="utf-8")
 url_list = [start_url + de for key in department_dict.keys() for de in department_dict[key]]
 
-disease_url_f = open(r".\data\disease_url.txt", "a", encoding="utf-8")  # 追加写
+disease_url_f = open(r"../data/disease_url.txt", "a", encoding="utf-8")  # 追加写
 
 disease_url_dict = dict()
 for url in url_list:  # url_list长度为41 索引0:41
