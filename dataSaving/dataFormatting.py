@@ -22,7 +22,7 @@ def node_extraction():
     """
     抽取所有结点
     即实体文件中不包含属性的部分
-    返回所有实体 格式为 {'label': [{node}, {node}, ...], ..}
+    返回所有实体 格式为 {'label': [{node}, {node}, ...], ...}
     """
     substance = ['check', 'department', 'disease', 'medical', 'symptom']
     node_dict = dict()
@@ -35,4 +35,4 @@ def node_extraction():
 
 
 if __name__ == "__main__":
-    print(len(node_extraction()))
+    pass

@@ -18,10 +18,11 @@ class DataToNeo4j(object):
 
     def create_node(self, node_dict):
         for i in range(5):
-            label = node_dict.keys()[i]
+            label = list(node_dict.keys())[i]
             for node in node_dict[label]:
-                this = self.graph.create(label)  # 创建当前结点，标签全为label
+                this = Node(label)
                 this.update(node)  # 加入属性
+                self.graph.create(this)  # 创建当前结点，标签全为label
 
     def create_relationship(self):
         pass

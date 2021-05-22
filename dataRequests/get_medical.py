@@ -75,7 +75,7 @@ if __name__ == "__main__":
                                  '\n')]  # 包含各种name的列表
                 for name in name_list:
                     if name[:4] == "通用名称":
-                        medical_dict["normal_name"] = name.split("：")[1]
+                        medical_dict["name"] = name.split("：")[1]
                     elif name[:4] == "商品名称":
                         medical_dict["product_name"] = name.split("：")[1]
                     elif name[:4] == "英文名称":
@@ -86,7 +86,7 @@ if __name__ == "__main__":
                         pass
                 break
             else:
-                medical_dict.update({"normal_name": None, "product_name": None, "en_name": None, "pinyin_name": None})
+                medical_dict.update({"name": None, "product_name": None, "en_name": None, "pinyin_name": None})
 
         get_attr("成份", "ingredient")
         get_attr("性状", "character")
