@@ -27,16 +27,16 @@ class DataToNeo4j(object):
 
     def create_relationship(self, relationship_dict):
         matcher = NodeMatcher(self.graph)  # 匹配对象
-        for i in range(5):
+        for i in range(3):
             a_label = list(relationship_dict.keys())[i]
-            for relationship in relationship_dict[label]:
+            for relationship in relationship_dict[a_label]:
                 a_id = list(relationship.keys())[0]
-                a = matcher.match(a_label).where(id=a_id)  # 起始点
-                relationship = relationship["id"]
+                a = matcher.match(a_label).where(id=a_id).first()  # 起始点
+                relationship = relationship[a_id]
                 for kv in relationship.items():
                     b_label = kv[0]
                     for b_id in kv[1]:
-                        b = matcher.match(b_label).where(id=b_id)  # 终点
+                        b = matcher.match(b_label).where(id=b_id).first()  # 终点
                         describe = self._get_describe(a_label, b_label)
                         this = Relationship(a, describe, b)
                         print(str(this).encode('utf-8').decode('unicode_escape'))

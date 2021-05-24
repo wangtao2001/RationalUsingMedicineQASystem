@@ -42,7 +42,7 @@ def relationship_extraction():
     """
     relationship_dict = dict()
     for i in range(5):
-        if i != 1:  # 科室没有外指向且无id字段
+        if i != 1 and i != 3:  # 疾病、科室没有外指向
             relationship_dict[substance[i]] = []
             for sub in read_file()[i]:
                 relationship = dict((key, value) for key, value in sub.items() if type(value) == type([]))
@@ -54,4 +54,4 @@ def relationship_extraction():
 
 
 if __name__ == "__main__":
-    relationship_extraction()
+    pass
