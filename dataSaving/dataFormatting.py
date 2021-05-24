@@ -3,6 +3,9 @@
 # @author:  wangtao
 # @data: 21/05/22, Sat
 
+substance = ['check', 'department', 'disease', 'medical', 'symptom']
+
+
 def read_file():
     """读入文件，形成列表，每个列表都是一个实体（字典）"""
     with open(r"../substance/check.txt", 'r', encoding='utf-8') as check_f:
@@ -22,16 +25,32 @@ def node_extraction():
     """
     抽取所有结点
     即实体文件中不包含属性的部分
-    返回所有实体 格式为 {'label': [{node}, {node}, ...], ...}
     """
-    substance = ['check', 'department', 'disease', 'medical', 'symptom']
     node_dict = dict()
     for i in range(5):
         node_dict[substance[i]] = []
         for sub in read_file()[i]:
-            node = dict((key, value) for key, value in sub.items() if not type(value) == type([]))  # 实体中值是列表的表示关系而不是属性
+            node = dict((key, value) for key, value in sub.items() if not type(value) == type([]))
             node_dict[substance[i]].append(node)
     return node_dict
+
+
+def relationship_extraction():
+    """
+    关系提取
+    返回实体中的关系部分
+    """
+    relationship_dict = dict()
+    for i in range(5):
+        if i != 1:  # 科室没有外指向且无id字段
+            relationship_dict[substance[i]] = []
+            for sub in read_file()[i]:
+                relationship = dict((key, value) for key, value in sub.items() if type(value) == type([]))
+                relationship = {sub['id']: relationship}
+                relationship_dict[substance[i]].append(relationship)
+        else:
+            pass
+    return relationship_dict
 
 
 if __name__ == "__main__":
