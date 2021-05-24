@@ -22,6 +22,7 @@ class DataToNeo4j(object):
             for node in node_dict[label]:
                 this = Node(label)
                 this.update(node)  # 加入属性
+                print(str(this).encode('utf-8').decode('unicode_escape'))
                 self.graph.create(this)  # 创建当前结点，标签全为label
 
     def create_relationship(self, relationship_dict):
@@ -38,6 +39,7 @@ class DataToNeo4j(object):
                         b = matcher.match(b_label).where(id=b_id)  # 终点
                         describe = self._get_describe(a_label, b_label)
                         this = Relationship(a, describe, b)
+                        print(str(this).encode('utf-8').decode('unicode_escape'))
                         self.graph.create(this)
 
     @staticmethod
