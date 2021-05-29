@@ -6,6 +6,10 @@
 from dataFormatting import *
 from dataToNeo4j import *
 
-neo = DataToNeo4j()  # 连接图数据库
-neo.create_node(node_extraction())  # 创建结点
+username = 'neo4j'
+password = 'qazplm-55454'
+
+neo = DataToNeo4j(username, password)  # 连接图数据库
+#neo.delete_all()
+#neo.create_node(node_extraction())  # 创建结点
 neo.create_relationship(relationship_extraction())  # 创建关系边

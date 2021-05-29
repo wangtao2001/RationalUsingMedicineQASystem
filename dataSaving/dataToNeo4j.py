@@ -5,25 +5,22 @@
 
 from py2neo import Node, Relationship, Graph, NodeMatcher
 
-username = 'neo4j'
-password = 'qazplm-55454'
-
 
 class DataToNeo4j(object):
-    def __init__(self):
-        # 建立连接
+    def __init__(self, username, password):
         self.graph = Graph('http://localhost:7474/', auth=(username, password))
-        # 清空数据库
+
+    def delete_all(self):
         self.graph.delete_all()
 
     def create_node(self, node_dict):
         for i in range(5):
             label = list(node_dict.keys())[i]
             for node in node_dict[label]:
-                this = Node(label)
-                this.update(node)  # 加入属性
-                print(str(this).encode('utf-8').decode('unicode_escape'))
-                self.graph.create(this)  # 创建当前结点，标签全为label
+                n = Node(label)
+                n.update(node)  # 加入属性
+                print(str(n).encode('utf-8').decode('unicode_escape'))
+                self.graph.create(n)  # 创建当前结点，标签全为label
 
     def create_relationship(self, relationship_dict):
         matcher = NodeMatcher(self.graph)  # 匹配对象
@@ -38,9 +35,9 @@ class DataToNeo4j(object):
                     for b_id in kv[1]:
                         b = matcher.match(b_label).where(id=b_id).first()  # 终点
                         describe = self._get_describe(a_label, b_label)
-                        this = Relationship(a, describe, b)
-                        print(str(this).encode('utf-8').decode('unicode_escape'))
-                        self.graph.create(this)
+                        r = Relationship(a, describe, b)
+                        print(str(r))
+                        self.graph.create(r)
 
     @staticmethod
     def _get_describe(a_label, b_label):
