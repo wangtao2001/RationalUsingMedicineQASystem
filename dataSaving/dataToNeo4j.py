@@ -19,7 +19,7 @@ class DataToNeo4j(object):
             for node in node_dict[label]:
                 n = Node(label)
                 n.update(node)  # 加入属性
-                print(str(n).encode('utf-8').decode('unicode_escape'))
+                #print(str(n).encode('utf-8').decode('unicode_escape'))
                 self.graph.create(n)  # 创建当前结点，标签全为label
 
     def create_relationship(self, relationship_dict):
@@ -34,38 +34,22 @@ class DataToNeo4j(object):
                     b_label = kv[0]
                     for b_id in kv[1]:
                         b = matcher.match(b_label).where(id=b_id).first()  # 终点
+                        if b is None:
+                            continue  # 有些指向的实体可能并没有存在（未收录）
                         describe = self._get_describe(a_label, b_label)
                         r = Relationship(a, describe, b)
-                        print(str(r))
+                        #print(str(r))
                         self.graph.create(r)
 
     @staticmethod
     def _get_describe(a_label, b_label):
         if a_label == 'disease':
-            if b_label == 'disease':
-                return '并发症'
-            if b_label == 'medical':
-                return '常用药品'
-            if b_label == 'symptom':
-                return '可能症状'
-            if b_label == 'check':
-                return '需做检查'
-            if b_label == 'department':
-                return '需要挂号科室'
-        if a_label == 'check':
-            if b_label == 'disease':
-                return '相关疾病'
-            if b_label == 'symptom':
-                return '相关症状'
-            if b_label == 'department':
-                return '所在科室'
-        if a_label == 'symptom':
-            if b_label == 'disease':
-                return '可能疾病'
-            if b_label == 'check':
-                return '鉴别检查'
-            if b_label == 'department':
-                return '待就诊科室'
+            hashmap = {'disease': '并发症', 'medical': '常用药品', 'symptom': '可能症状', 'department': '需要挂号科室'}
+        elif a_label == 'check':
+            hashmap = {'disease': '相关疾病', 'symptom': '相关症状', 'department': '所在科室'}
+        elif a_label == 'symptom':
+            hashmap = {'disease': '可能疾病', 'check': '鉴别检查', 'department': '待就诊科室'}
+        return hashmap.get(b_label)
 
 
 
