@@ -11,7 +11,7 @@ def read_file():
     with open(r"../substance/check.txt", 'r', encoding='utf-8') as check_f:
         check_data = [eval(dicts) for dicts in check_f.readlines()]
     with open(r"../substance/department.txt", 'r', encoding='utf-8') as department_f:
-        department_data = [{"name": names} for names in department_f.readlines()]
+        department_data = [eval(dicts) for dicts in department_f.readlines()]
     with open(r"../substance/disease.txt", 'r', encoding='utf-8') as disease_f:
         disease_data = [eval(dicts) for dicts in disease_f.readlines()]
     with open(r"../substance/medical.txt", 'r', encoding='utf-8') as medical_f:
