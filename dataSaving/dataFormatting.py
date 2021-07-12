@@ -54,4 +54,4 @@ def relationship_extraction():
 
 
 if __name__ == "__main__":
-    print(relationship_extraction()['check'])
+    pass

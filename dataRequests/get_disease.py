@@ -24,9 +24,6 @@ medical_url_f = open(r".\data\medical_url_repeat.txt", 'a', encoding='utf-8')  #
 for url in disease_url_list[count:]:  # 7378 条数据 无重复disease
 
     count += 1
-    i = int(int(100 * count / 7378) / 2)
-    print("\r" + str(count) + "|" + "█" * i + " " * (50 - i) + "|" + "{:.2f}%".format(100 * count / 7378),
-          end='')  # 刷新输出显示百分比进度
 
     disease_dict = dict()
 

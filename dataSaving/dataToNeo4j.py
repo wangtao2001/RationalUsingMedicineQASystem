@@ -9,9 +9,11 @@ from py2neo import Node, Relationship, Graph, NodeMatcher
 class DataToNeo4j(object):
     def __init__(self, username, password):
         self.graph = Graph('http://localhost:7474/', auth=(username, password))
+        print('连接成功')
 
     def delete_all(self):
         self.graph.delete_all()
+        print('已经清空原有数据')
 
     def create_node(self, node_dict):
         for i in range(5):
@@ -21,6 +23,7 @@ class DataToNeo4j(object):
                 n.update(node)  # 加入属性
                 #print(str(n).encode('utf-8').decode('unicode_escape'))
                 self.graph.create(n)  # 创建当前结点，标签全为label
+        print('结点创建完成')
 
     def create_relationship(self, relationship_dict):
         matcher = NodeMatcher(self.graph)  # 匹配对象
@@ -40,11 +43,12 @@ class DataToNeo4j(object):
                         r = Relationship(a, describe, b)
                         #print(str(r))
                         self.graph.create(r)
+        print('关系边创建完成')
 
     @staticmethod
     def _get_describe(a_label, b_label):
         if a_label == 'disease':
-            hashmap = {'disease': '并发症', 'medical': '常用药品', 'symptom': '可能症状', 'department': '需要挂号科室'}
+            hashmap = {'disease': '并发症', 'medical': '常用药品', 'symptom': '可能症状', 'department': '需要挂号科室', 'check': '需做检查'}
         elif a_label == 'check':
             hashmap = {'disease': '相关疾病', 'symptom': '相关症状', 'department': '所在科室'}
         elif a_label == 'symptom':

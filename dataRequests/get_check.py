@@ -17,7 +17,6 @@ if __name__ == "__main__":
     check_f = open(r"../substance/check.txt", 'a', encoding='utf-8')  # medical实体文件
 
     count = 1989
-    # 10条测试数据
     for url in check_url_list[count:]:  # 2189 条检查无重复 index=0:2189
         count += 1
         print(count)

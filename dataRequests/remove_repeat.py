@@ -3,7 +3,7 @@
 # @author:  wangtao
 # @data: 21/04/06, Mon
 
-class RR:
+class RemoveRepeat:
     def __init__(self, file, name):
         li = [i.strip() for i in file.readlines()]  # 每个元素都是字典
         print(f"去重前：{len(li)}")
@@ -17,8 +17,8 @@ class RR:
 
 if __name__ == "__main__":
     with open(r".\data\medical_url_repeat.txt", "r", encoding='utf-8') as file:
-        RR(file, "medical_url")
+        RemoveRepeat(file, "medical_url")
     with open(r".\data\check_url_repeat.txt", "r", encoding='utf-8') as file:
-        RR(file, "check_url")
+        RemoveRepeat(file, "check_url")
     with open(r".\data\symptom_url_repeat.txt", "r", encoding='utf-8') as file:
-        RR(file, "symptom_url")
+        RemoveRepeat(file, "symptom_url")
