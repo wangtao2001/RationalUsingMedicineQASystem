@@ -60,4 +60,4 @@ def relationship_extraction():
 
 
 if __name__ == "__main__":
-    read_file()
+    pass
