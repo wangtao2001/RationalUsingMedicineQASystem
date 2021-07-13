@@ -3,20 +3,26 @@
 # @author:  wangtao
 # @data: 21/05/22, Sat
 
+import os
+
+path = os.path.dirname(__file__)
+root = os.path.dirname(path)
+sub_path = root + '/substance/'
+
 substance = ['check', 'department', 'disease', 'medical', 'symptom']
 
 
 def read_file():
     """读入文件，形成列表，每个列表都是一个实体（字典）"""
-    with open(r"../substance/check.txt", 'r', encoding='utf-8') as check_f:
+    with open(sub_path + "check.txt", 'r', encoding='utf-8') as check_f:
         check_data = [eval(dicts) for dicts in check_f.readlines()]
-    with open(r"../substance/department.txt", 'r', encoding='utf-8') as department_f:
+    with open(sub_path + "department.txt", 'r', encoding='utf-8') as department_f:
         department_data = [eval(dicts) for dicts in department_f.readlines()]
-    with open(r"../substance/disease.txt", 'r', encoding='utf-8') as disease_f:
+    with open(sub_path + "disease.txt", 'r', encoding='utf-8') as disease_f:
         disease_data = [eval(dicts) for dicts in disease_f.readlines()]
-    with open(r"../substance/medical.txt", 'r', encoding='utf-8') as medical_f:
+    with open(sub_path + "medical.txt", 'r', encoding='utf-8') as medical_f:
         medical_data = [eval(dicts) for dicts in medical_f.readlines()]
-    with open(r"../substance/symptom.txt", 'r', encoding='utf-8') as symptom_f:
+    with open(sub_path + "symptom.txt", 'r', encoding='utf-8') as symptom_f:
         symptom_data = [eval(dicts) for dicts in symptom_f.readlines()]
     return [check_data, department_data, disease_data, medical_data, symptom_data]
 
@@ -54,4 +60,4 @@ def relationship_extraction():
 
 
 if __name__ == "__main__":
-    pass
+    read_file()
