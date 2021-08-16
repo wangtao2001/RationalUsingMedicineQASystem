@@ -1,0 +1,17 @@
+意图：
+PossibleSymptoms： 可能的症状
+PossibleDiseases： 可能的疾病
+TherapeuticDrugs： 治疗的药物
+Complication：并发症
+NeedfulCheck：(疾病/症状)需要做的检查
+DiseaseDepartment： (疾病/症状)归属的科室
+CheckDepartment： 检查归属的科室
+CheckoutDisease： 检查出来的疾病
+DiseaseDescribe： (疾病/症状)描述
+IncidenceCrowd： 发病人群
+CureRate： 疾病的治愈率
+OnsetSite： 发病部位
+MedicalInsurance： 疾病是否参与医保
+
+
+

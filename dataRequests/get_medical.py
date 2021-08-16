@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 start_url = "https://ybk.39.net/"
 headers = {r"user-agent": "Mozilla\5.0"}
 
+
 def get_attr(attr_name: str, attr: str):
     global medical_dict  # 全局字典
     global li_list  # 全局 li_list

@@ -48,7 +48,7 @@ class DataToNeo4j(object):
     @staticmethod
     def _get_describe(a_label, b_label):
         if a_label == 'disease':
-            hashmap = {'disease': '并发症', 'medical': '常用药品', 'symptom': '可能症状', 'department': '需要挂号科室', 'check': '需做检查'}
+            hashmap = {'disease': '并发症', 'medical': '常用治疗药物', 'symptom': '可能症状', 'department': '所属科室', 'check': '需做检查'}
         elif a_label == 'check':
             hashmap = {'disease': '相关疾病', 'symptom': '相关症状', 'department': '所在科室'}
         elif a_label == 'symptom':
