@@ -1,0 +1,1 @@
+<view class="root-grid"><block wx:for="{{items}}" wx:for-item="item" wx:for-index="__i0__"><grid-item class="grid-item" vue-id="{{'4ef2ab05-1-'+__i0__}}" icon="{{item.icon}}" title="{{item.title}}" bind:__l="__l"></grid-item></block></view>
