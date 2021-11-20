@@ -1,1 +1,0 @@
-<view class="root-grid-item"><image src="{{icon}}" mode="aspectFit"></image><text>{{title}}</text></view>
