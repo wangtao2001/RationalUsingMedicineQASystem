@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['navigateToDetails',['$event']]]]]}}" class="root-grid-item" bindtap="__e"><image src="{{icon}}" mode="aspectFit"></image><text>{{title}}</text></view>

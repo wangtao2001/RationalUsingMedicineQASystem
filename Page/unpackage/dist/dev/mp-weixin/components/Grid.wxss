@@ -1,0 +1,12 @@
+
+.root-grid {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.grid-item {
+	width: 20%;
+	height: 33.3%;
+}
+
+

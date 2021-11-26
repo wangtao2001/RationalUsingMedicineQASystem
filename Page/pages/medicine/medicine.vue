@@ -1,6 +1,9 @@
 <template>
-	<view id="app">
-		<Grid :items="items" class="root-grid"></Grid>
+	<view>
+		<image class="BG-set" src="../../static/backGround/中药页面背景.jpg"></image>
+		<view id="app">
+			<Grid :items="items" class="root-grid"></Grid>
+		</view>
 	</view>
 </template>
 
@@ -114,6 +117,14 @@
 </script>
 
 <style>
+	.BG-set{
+		position: fixed;
+		    width: 100%;
+		    height: 100%;
+		    top: 0;
+		    left: 0;
+		    z-index: -1;
+	}
 	.root-grid{
 		height: 300px;
 		width: 1000px;

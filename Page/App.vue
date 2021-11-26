@@ -3,12 +3,14 @@
 
 <style>
 	#app {
-		height: 500px;
+		height: 600px;
 		width: 80%;
 		margin: 0 auto;
+		display: flex;
+		justify-content: center;
 	}
 	.root-grid {
-		height: 100%;
+		height: 80%;
 		width: 100%;
 	}
 	.uni-tabbar__label{

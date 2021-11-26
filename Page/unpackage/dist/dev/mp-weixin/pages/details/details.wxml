@@ -1,0 +1,1 @@
+<view class="w"><view class="top"><view data-event-opts="{{[['tap',[['navigateToIndex',['$event']]]]]}}" class="title" bindtap="__e"><text class="title1">合理用药智能问答平台</text><text class="title2">Intelligent Q & A platform for rational drug use</text></view><view class="search"><input placeholder="如果您有关于医药知识相关问题,请搜索"/><button>提交</button></view></view></view>

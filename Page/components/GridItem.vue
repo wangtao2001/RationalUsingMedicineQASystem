@@ -1,5 +1,5 @@
 <template>
-	<view class="root-grid-item">
+	<view class="root-grid-item" @click="navigateToDetails">
 		<image :src="icon" mode="aspectFit"></image>
 		<text>{{title}}</text>
 	</view>
@@ -8,7 +8,17 @@
 <script>
 	export default {
 		name:'GridItem',
-		props:['icon', 'title']
+		props:['icon', 'title'],
+		methods:{
+			navigateToDetails() {
+				uni.navigateTo({
+					// 坑，要写调用组件页面的相对路径
+					url: `../../pages/details/details?title=${this.title}&type=1`, 
+					success: () => {console.log('跳转成功')},
+					fail: () => {console.log('跳转失败')}
+				})
+			}
+		}
 	}
 </script>
 
@@ -23,7 +33,6 @@
 	.root-grid-item image {
 		height: 60%;
 		width: 60%;
-/* 		box-shadow: 5px 10px #888888; */
 	}
 	.root-grid-item text {
 		width: 100%;

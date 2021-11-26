@@ -1,6 +1,10 @@
 <template>
-	<view id="app">
-		<Grid :items="items" class="root-grid"></Grid>
+	<view>
+		<!-- 设置背景图片 -->
+		<image class="BG-set" src="../../static/backGround/科室页面背景.jpg"></image>
+		<view id="app">
+			<Grid :items="items" class="root-grid"></Grid>
+		</view>
 	</view>
 </template>
 
@@ -65,4 +69,12 @@
 </script>
 
 <style>
+	.BG-set{
+		position: fixed;
+		    width: 100%;
+		    height: 100%;
+		    top: 0;
+		    left: 0;
+		    z-index: -1;
+	}
 </style>
