@@ -8,12 +8,12 @@
 <script>
 	export default {
 		name:'GridItem',
-		props:['icon', 'title'],
+		props:['icon', 'title', 'type'],
 		methods:{
 			navigateToDetails() {
 				uni.navigateTo({
 					// 坑，要写调用组件页面的相对路径
-					url: `../../pages/details/details?title=${this.title}&type=1`, 
+					url: `../../pages/details/details?title=${this.title}&type=${this.type}`, 
 					success: () => {console.log('跳转成功')},
 					fail: () => {console.log('跳转失败')}
 				})

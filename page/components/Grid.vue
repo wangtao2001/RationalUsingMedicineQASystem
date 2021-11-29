@@ -1,6 +1,6 @@
 <template>
 	<view class="root-grid">
-		<grid-item class="grid-item" v-for="item in items" :icon="item.icon" :title="item.title"></grid-item>
+		<grid-item class="grid-item" v-for="item in items" :icon="item.icon" :type="type" :title="item.title"></grid-item>
 	</view>
 </template>
 
@@ -9,7 +9,7 @@
 	export default {
 		name:'Grid',
 		components:{GridItem},
-		props:["items"]
+		props:["items", "type"]
 	}
 </script>
 

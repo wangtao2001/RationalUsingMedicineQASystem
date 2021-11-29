@@ -1,8 +1,10 @@
 <template>
 	<view>
-		<image class="BG-set" src="../../static/backGround/中药页面背景.jpg"></image>
-		<view id="app">
-			<Grid :items="items" class="root-grid"></Grid>
+		<image class="bg-set" src="../../static/backGround/中药页面背景.jpg"></image>
+		<view class="grid-container">
+			<view id="app">
+				<Grid :items="items" :type="3" class="root-grid"></Grid>
+			</view>
 		</view>
 	</view>
 </template>
@@ -116,18 +118,24 @@
 	}
 </script>
 
-<style>
-	.BG-set{
+<style scoped>
+	.bg-set{
 		position: fixed;
-		    width: 100%;
-		    height: 100%;
-		    top: 0;
-		    left: 0;
-		    z-index: -1;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
 	}
 	.root-grid{
-		height: 300px;
+		height: 360px;
 		width: 1000px;
+	}
+	.grid-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 670px;
 	}
 </style>
 
