@@ -1,0 +1,60 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index"
+		},
+		{
+			"path":"pages/depart/depart"
+		}
+        ,{
+            "path" : "pages/dialectics/dialectics"
+        }
+        ,{
+            "path" : "pages/medicine/medicine"
+        }
+        ,{
+            "path" : "pages/details/details"
+        }
+    ],
+	"globalStyle": {
+		"navigationStyle":"custom",
+		"app-plus":{
+			"titleNView":false
+		},
+		"navigationBarTitleText":"合理用药智能问答系统"
+	},
+	"tabBar":{
+		"color":"#FFF0F5",
+		"selectedColor":"#63B8FF",
+		"backgroundColor":"#3A5FCD",
+		"borderStyle":"black",
+		"position":"bottom",
+		"list":[
+					{
+						"text":"首页",
+						"pagePath":"pages/index/index",
+						"iconPath":"./static/tabBar/搜索.png",
+						"selectedIconPath":"./static/tabBar/搜索.png"
+					},
+					{
+						"text":"科室",
+						"pagePath":"pages/depart/depart",
+						"iconPath":"./static/tabBar/科室.png",
+						"selectedIconPath":"./static/tabBar/科室.png"
+					},
+					{
+						"text":"辨证法",
+						"pagePath":"pages/dialectics/dialectics",
+						"iconPath":"./static/tabBar/辨证法.png",
+						"selectedIconPath":"./static/tabBar/辨证法.png"
+					},
+					{
+						"text":"中药",
+						"pagePath":"pages/medicine/medicine",
+						"iconPath":"./static/tabBar/中药.png",
+						"selectedIconPath":"./static/tabBar/中药.png"
+					}
+				]
+			}
+}
+		

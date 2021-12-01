@@ -18,5 +18,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # 后端接口 使用POST请求
     path('answer', views.get_answer)
 ]

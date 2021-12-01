@@ -20,7 +20,7 @@ def get_answer(request: HttpRequest):
 
         if type == '0':  # 问题提交
             question = request.POST['questionOrTitle']
-            print('question: ' + question)
+            # print('question: ' + question)
             # 问答接口
             answer = "竹叶配伍的美容方剂有：清凉爽身浴方、体臭方、常用蜡脂方"
             center_node_name = "竹叶"
