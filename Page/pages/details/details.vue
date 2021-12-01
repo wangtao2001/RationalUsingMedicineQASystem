@@ -9,7 +9,7 @@
       </view>
       <view class="search">
         <input placeholder="如果您有关于医药知识相关问题,请搜索" v-model="topQuestion"/>
-        <button onclick="topSubmit">提交</button>
+        <button @click="topSubmit">提交</button>
       </view>
     </view>
 	<view class="navi">
@@ -45,6 +45,8 @@
 		</view>
 	    <view class="viz-container">
 	       <view id="viz"></view>
+		   <text>{{tip}}</text>
+		   <text>将鼠标悬停在结点上以查看更多信息</text>
 	     </view>
 	   </view>
    </view>
@@ -57,7 +59,8 @@ import NeoVisConfig from "../../static/js/neovis-config.js"; // 图谱配置文�
 export default {
   data() {
     return {
-      answer: "",
+      answer: " ",
+	  tip: " ",
 	  topQuestion: "",
 	  likeIcon: "../../static/answerCard/点赞.png",
 	  like: false
@@ -98,6 +101,7 @@ export default {
 		  // 后端获取问题答案和图谱查询语句
 		  // 将数据展示出来
           this.answer = res.data.answer;
+		  this.tip = res.data.tip;
 		  NeoVisConfig['initial_cypher'] = res.data.cypher;
 		  this.drawNeo();
         },
@@ -114,7 +118,7 @@ export default {
 		if (this.topQuestion.trim().length == 0) {
 		  this.topQuestion = "";
 		} else {
-			this.getAnswer(this.topQuestion)
+			this.getAnswer(this.topQuestion, "0")
 		}
 	},
 	// 点赞动作
@@ -211,6 +215,7 @@ export default {
 .answer {
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start; /*解决answer-card不继承高度而随内容撑开*/
 }
 
 .answer-card {
@@ -218,7 +223,6 @@ export default {
 	border-radius: 4px;
 	box-shadow: rgb(0 0 0 / 8%) 0px 0px 3px 1px;
 	width: 780px;
-	height: 170px;
 }
 
 .answer-tip {
@@ -247,6 +251,7 @@ export default {
 	display: flex;
 	justify-content: flex-end;
 	margin-bottom: 10px;
+	margin-top: 5px;
 }
 
 .answer-action-item {
@@ -258,6 +263,18 @@ export default {
 	height: 20px;
 	vertical-align: bottom;
 	margin-right: 5px;
+}
+
+.viz-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.viz-container text {
+	margin-top: 10px;
+	color: #808080;
 }
 
 #viz {

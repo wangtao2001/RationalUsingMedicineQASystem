@@ -52,7 +52,7 @@ def relationship_extraction():
             relationship_dict[substance[i]] = []
             for sub in read_file()[i]:
                 relationship = dict((key, value) for key, value in sub.items() if type(value) == type([]))
-                relationship = {sub['id']: relationship}
+                relationship = {sub['_id']: relationship}
                 relationship_dict[substance[i]].append(relationship)
         else:
             pass

@@ -21,7 +21,7 @@ class DataToNeo4j(object):
             for node in node_dict[label]:
                 n = Node(label)
                 n.update(node)  # 加入属性
-                #print(str(n).encode('utf-8').decode('unicode_escape'))
+                # print(str(n).encode('utf-8').decode('unicode_escape'))
                 self.graph.create(n)  # 创建当前结点，标签全为label
         print('结点创建完成')
 
@@ -31,17 +31,17 @@ class DataToNeo4j(object):
             a_label = list(relationship_dict.keys())[i]
             for relationship in relationship_dict[a_label]:
                 a_id = list(relationship.keys())[0]
-                a = matcher.match(a_label).where(id=a_id).first()  # 起始点
+                a = matcher.match(a_label).where(_id=a_id).first()  # 起始点
                 relationship = relationship[a_id]
                 for kv in relationship.items():
                     b_label = kv[0]
                     for b_id in kv[1]:
-                        b = matcher.match(b_label).where(id=b_id).first()  # 终点
+                        b = matcher.match(b_label).where(_id=b_id).first()  # 终点
                         if b is None:
                             continue  # 有些指向的实体可能并没有存在（未收录）
                         describe = self._get_describe(a_label, b_label)
                         r = Relationship(a, describe, b)
-                        #print(str(r))
+                        # print(str(r))
                         self.graph.create(r)
         print('关系边创建完成')
 

@@ -42,7 +42,7 @@
 						"selectedIconPath":"./static/tabBar/科室.png"
 					},
 					{
-						"text":"辩证法",
+						"text":"辨证法",
 						"pagePath":"pages/dialectics/dialectics",
 						"iconPath":"./static/tabBar/辨证法.png",
 						"selectedIconPath":"./static/tabBar/辨证法.png"
